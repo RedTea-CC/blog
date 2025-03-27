@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
+import rehypeHighlight from 'rehype-highlight'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,7 +15,7 @@ const nextConfig = {
 }
 
 const withMDX = createMDX({
-  extension: /\.mdx?$/,
+  extension: /\.(md|mdx)$/,
   // Add markdown plugins here, as desired
   options: {
     remarkPlugins: [remarkGfm],
@@ -34,6 +35,7 @@ const withMDX = createMDX({
           },
         },
       ],
+      rehypeHighlight,
     ],
   },
 })

@@ -4,14 +4,22 @@ import Image, { ImageProps } from 'next/image'
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Allows customizing built-in components, e.g. to add styling.
-    h1: ({ children }) => (
-      <h1 style={{ color: 'red', fontSize: '48px' }}>{children}</h1>
-    ),
-    img: (props) => (
-      <Image
-        sizes="100vw"
-        style={{ width: '100%', height: 'auto' }}
-        {...(props as ImageProps)}
+    // img: (props) => (
+    //   <Image
+    //     sizes="100vw"
+    //     style={{ width: '100%', height: 'auto' }}
+    //     {...(props as ImageProps)}
+    //   />
+    // ),
+    // pre: (props) => (
+    //   <div className="overflow-x-auto rounded-lg bg-zinc-100 dark:bg-zinc-800 p-5">
+    //     <pre {...props} />
+    //   </div>
+    // ),
+    code: (props) => (
+      <code
+        className="mdx-code rounded-sm bg-zinc-100 px-1 dark:bg-zinc-800"
+        {...props}
       />
     ),
     ...components,
