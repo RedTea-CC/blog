@@ -18,7 +18,7 @@ import {
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
-} from './data'
+} from '../data'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -218,7 +218,7 @@ export default function Personal() {
         <div className="flex flex-col space-y-0">
           <AnimatedBackground
             enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
+            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-950"
             transition={{
               type: 'spring',
               bounce: 0,
