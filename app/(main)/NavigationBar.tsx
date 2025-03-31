@@ -1,6 +1,5 @@
 'use client'
 
-import { clsxm } from '@zolplay/utils'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -23,17 +22,15 @@ function NavItem({
   children: React.ReactNode
 }) {
   const isActive = usePathname() === href
-
   return (
     <li>
       <Link
         href={href}
-        className={clsxm(
-          'relative block px-3 py-2 whitespace-nowrap transition',
+        className={`relative block px-3 py-2 whitespace-nowrap transition ${
           isActive
             ? 'text-lime-600 dark:text-lime-400'
-            : 'hover:text-lime-600 dark:hover:text-lime-400',
-        )}
+            : 'hover:text-lime-600 dark:hover:text-lime-400'
+        }`}
       >
         {children}
         {isActive && (
@@ -68,14 +65,7 @@ function Desktop({
   return (
     <nav
       onMouseMove={handleMouseMove}
-      className={clsxm(
-        'group relative',
-        'rounded-full bg-gradient-to-b from-zinc-50/70 to-white/90',
-        'shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-md',
-        'dark:from-zinc-900/70 dark:to-zinc-800/90 dark:ring-zinc-100/10',
-        '[--spotlight-color:rgb(236_252_203_/_0.6)] dark:[--spotlight-color:rgb(217_249_157_/_0.07)]',
-        className,
-      )}
+      className={`group relative rounded-full bg-gradient-to-b from-zinc-50/70 to-white/90 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-md [--spotlight-color:rgb(236_252_203_/_0.6)] dark:from-zinc-900/70 dark:to-zinc-800/90 dark:ring-zinc-100/10 dark:[--spotlight-color:rgb(217_249_157_/_0.07)] ${className || ''}`}
       {...props}
     >
       {/* Spotlight overlay */}
