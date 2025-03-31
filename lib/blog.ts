@@ -30,8 +30,8 @@ export function getBlogPostIds() {
 }
 
 // Get all blog posts
-export function getAllBlogPosts(): BlogPost[] {
-  const fileNames = fs.readdirSync(blogDirectory)
+export function getAllBlogPosts(recentNums = 0): BlogPost[] {
+  const fileNames = fs.readdirSync(blogDirectory).slice(recentNums * -1)
 
   const allBlogPosts = fileNames.map((fileName) => {
     const id = fileName.replace(/\.(md|mdx)$/, '')

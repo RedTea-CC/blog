@@ -4,7 +4,7 @@ import { getAllBlogPosts } from '@/lib/blog'
 
 export async function getBlogPosts() {
   try {
-    const blogPosts = getAllBlogPosts()
+    const blogPosts = getAllBlogPosts(10)
     return blogPosts
   } catch (error) {
     console.error('Error fetching blog posts:', error)
