@@ -14,7 +14,7 @@ import {
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import { PROJECTS, WORK_EXPERIENCE, EMAIL, SOCIAL_LINKS } from '../data'
-import { getBlogPosts } from '../actions'
+import { getAllBlogPosts } from '../lib/actions'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -135,7 +135,7 @@ export default function Personal() {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const data = await getBlogPosts()
+        const data = await getAllBlogPosts(10)
         setBlogPosts(data)
       } catch (error) {
         console.error('Error fetching blog posts:', error)
