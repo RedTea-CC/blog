@@ -4,7 +4,15 @@ export default async function Page({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const { default: Post } = await import(`@/blog/${slug}.mdx`)
+  // fix:兼容一下是mdx或者md
+  let Post
+  try {
+    const mdxModule = await import(`@/blog/${slug}.mdx`)
+    Post = mdxModule.default
+  } catch (error) {
+    const mdModule = await import(`@/blog/${slug}.md`)
+    Post = mdModule.default
+  }
 
   return <Post />
 }
