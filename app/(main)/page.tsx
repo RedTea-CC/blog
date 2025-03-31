@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
@@ -12,13 +13,8 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import {
-  PROJECTS,
-  WORK_EXPERIENCE,
-  BLOG_POSTS,
-  EMAIL,
-  SOCIAL_LINKS,
-} from '../data'
+import { PROJECTS, WORK_EXPERIENCE, EMAIL, SOCIAL_LINKS } from '../data'
+import { getBlogPosts } from '../actions'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -123,7 +119,34 @@ function MagneticSocialLink({
   )
 }
 
+interface BlogPost {
+  id: string
+  title: string
+  date: string
+  slug: string
+  content: string
+  excerpt: string
+}
+
 export default function Personal() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const data = await getBlogPosts()
+        setBlogPosts(data)
+      } catch (error) {
+        console.error('Error fetching blog posts:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchBlogPosts()
+  }, [])
+
   return (
     <motion.main
       className="space-y-24"
@@ -225,23 +248,27 @@ export default function Personal() {
               duration: 0.2,
             }}
           >
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
+            {loading ? (
+              <div className="p-3 text-zinc-500">Loading blog posts...</div>
+            ) : (
+              blogPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  className="-mx-3 rounded-xl px-3 py-3"
+                  href={`/blog/${post.slug}`}
+                  data-id={post.id}
+                >
+                  <div className="flex flex-col space-y-1">
+                    <h4 className="font-normal dark:text-zinc-100">
+                      {post.title}
+                    </h4>
+                    <p className="text-zinc-500 dark:text-zinc-400">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              ))
+            )}
           </AnimatedBackground>
         </div>
       </motion.section>
