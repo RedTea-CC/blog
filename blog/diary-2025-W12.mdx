@@ -1,19 +1,23 @@
+---
+title: 'diary-2025-W12'
+date: '2025-03-28'
+tags:
+  - Diary
+---
+
 # 总结
 
-
-
-
-
-
-
 # TO DO LIST
-"Talk is cheap, show me the code. "
 
+"Talk is cheap, show me the code. "
 
 把技术实现的难点和业务痛点结合一下
 写遇到了什么，然后做了什么，解决了什么
+
 ## 仓库
+
 [Site Unreachable](https://github.com/xiumubai/coding.git)
+
 ## requestAnimationFrame
 
 用requestAnimationFrame是为了解决什么问题？为什么要用这个？这个和setTimeout的区别是？
@@ -21,38 +25,40 @@
 线程和进程间通信是多任务操作系统中实现并发和资源共享的重要机制。以下是线程和进程间通信的常见方式：
 
 ## CSS
+
 ### BFC
+
 Block formatting context
 清除浮动
-
 
 # STUDY
 
 ## try...catch
+
 #语句
 
 **`try...catch`** 语句由一个 `try` 块和一个 `catch` 块或 `finally` 块（或两者皆有）组成。首先执行 `try` 块中的代码，如果它抛出异常，则将执行 `catch` 块中的代码。`finally` 块中的代码将在控制流退出整个结构之前始终被执行。
 
 ```js
 try {
-    console.log("外层 try 开始");
+  console.log('外层 try 开始')
 
-    try {
-        console.log("内层 try 开始");
-        // 抛出一个错误
-        throw new Error("内层错误");
-    } catch (innerError) {
-        console.log("内层 catch 捕获到错误:", innerError.message);
-        // 如果需要，可以选择不处理错误，或者重新抛出
-        throw new Error("重新抛出错误");
-    }
+  try {
+    console.log('内层 try 开始')
+    // 抛出一个错误
+    throw new Error('内层错误')
+  } catch (innerError) {
+    console.log('内层 catch 捕获到错误:', innerError.message)
+    // 如果需要，可以选择不处理错误，或者重新抛出
+    throw new Error('重新抛出错误')
+  }
 
-    console.log("内层 try 结束"); // 这行不会执行
+  console.log('内层 try 结束') // 这行不会执行
 } catch (outerError) {
-    console.log("外层 catch 捕获到错误:", outerError.message);
+  console.log('外层 catch 捕获到错误:', outerError.message)
 }
 
-console.log("程序继续运行");
+console.log('程序继续运行')
 ```
 
 ```bash
@@ -66,10 +72,12 @@ console.log("程序继续运行");
 - 即使发生了错误，只要错误被捕获并处理，程序不会崩溃，后续代码仍然会执行。
 
 > 注意事项：
->- 如果内层 `catch` 没有重新抛出错误，外层 `catch` 就不会捕获到任何错误。
->- 嵌套 `try...catch` 时，错误的传播路径是从内到外，逐层检查是否有 `catch` 块处理错误。
+>
+> - 如果内层 `catch` 没有重新抛出错误，外层 `catch` 就不会捕获到任何错误。
+> - 嵌套 `try...catch` 时，错误的传播路径是从内到外，逐层检查是否有 `catch` 块处理错误。
 
 ## `maring-inline`
+
 #CSS属性
 
 `margin-inline`将把`margin-left`和设置`margin-right`为相同的值（`auto`）

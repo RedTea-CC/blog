@@ -1,8 +1,8 @@
+'use server'
+
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-
-// 获取根目录下blog文件夹下的所有文件，生成一个接口给前端使用
 
 // Blog post type definition
 export interface BlogPost {
@@ -17,7 +17,7 @@ export interface BlogPost {
 const blogDirectory = path.join(process.cwd(), 'blog')
 
 // Get all blog post IDs
-export function getBlogPostIds() {
+export async function getBlogPostIds() {
   const fileNames = fs.readdirSync(blogDirectory)
 
   return fileNames.map((fileName) => {
@@ -30,21 +30,22 @@ export function getBlogPostIds() {
 }
 
 // Get all blog posts
-export function getAllBlogPosts(): BlogPost[] {
-  const fileNames = fs.readdirSync(blogDirectory)
+export async function getAllBlogPosts(recentNums = 0): Promise<BlogPost[]> {
+  const fileNames = fs.readdirSync(blogDirectory).slice(recentNums * -1)
 
   const allBlogPosts = fileNames.map((fileName) => {
     const id = fileName.replace(/\.(md|mdx)$/, '')
     const fullPath = path.join(blogDirectory, fileName)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const stats = fs.statSync(fullPath)
 
     const matterResult = matter(fileContents)
 
     return {
       id,
       slug: id,
-      title: matterResult.data.title,
-      date: matterResult.data.date,
+      title: id,
+      date: stats.birthtime.toISOString().split('T')[0], // Use file creation date
       content: matterResult.content,
       excerpt: matterResult.content.slice(0, 100) + '...',
     }
@@ -61,7 +62,9 @@ export function getAllBlogPosts(): BlogPost[] {
 }
 
 // Get a single blog post by ID
-export function getBlogPostById(id: string): BlogPost | undefined {
+export async function getBlogPostById(
+  id: string,
+): Promise<BlogPost | undefined> {
   const fullPath = path.join(blogDirectory, `${id}.md`)
 
   if (!fs.existsSync(fullPath)) {
@@ -77,6 +80,6 @@ export function getBlogPostById(id: string): BlogPost | undefined {
     title: matterResult.data.title,
     date: matterResult.data.date,
     content: matterResult.content,
-    excerpt: matterResult.content.slice(0, 150) + '...',
+    excerpt: matterResult.content.slice(0, 100) + '...',
   }
 }

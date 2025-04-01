@@ -1,4 +1,5 @@
 import { Header } from './header'
+import { Header as HeaderFixed } from './HeaderFixed'
 import { Footer } from './footer'
 
 export default function BlogLayout({
@@ -22,6 +23,7 @@ export default function BlogLayout({
         </div>
       </div>
       <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
+        <HeaderFixed />
         <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
           <Header />
           {children}
