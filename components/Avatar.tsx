@@ -3,8 +3,8 @@ import Link, { type LinkProps } from 'next/link'
 import { PropsWithChildren } from 'react'
 import { cn } from '@/lib/utils'
 
-import portraitImage from '@/assets/Portrait.png'
-import portraitAltImage from '@/assets/PortraitAlt.jpg'
+import portraitImage from '@/assets/Cat.jpg'
+import portraitAltImage from '@/assets/Cat1.jpg'
 
 type ComponentProps<P = {}> = PropsWithChildren<
   {
