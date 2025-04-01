@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { getAllBlogPosts } from '@/app/lib/actions'
-import { BlogList } from '@/components/BlogList'
+import { AnimatedBackground } from '@/components/ui/animated-background'
+import Link from 'next/link'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -65,7 +66,47 @@ export default function BlogPage() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <BlogList posts={blogPosts} loading={loading} />
+        <AnimatedBackground
+          enableHover
+          className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-950"
+          transition={{
+            type: 'spring',
+            bounce: 0,
+            duration: 0.2,
+          }}
+        >
+          {loading ? (
+            <div className="flex items-center justify-center p-6 text-zinc-500">
+              <div className="flex items-center space-x-2">
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-zinc-500 border-t-transparent" />
+                <span>Loading blog posts...</span>
+              </div>
+            </div>
+          ) : (
+            blogPosts.map((post) => (
+              <Link
+                key={post.id}
+                className="group -mx-3 block rounded-xl px-3 py-4"
+                href={`/blog/${post.slug}`}
+                data-id={post.id}
+              >
+                <div className="relative flex flex-col space-y-1">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                      {post.title}
+                    </h2>
+                    <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                      {post.date}
+                    </span>
+                  </div>
+                  <p className="line-clamp-2 text-zinc-600 dark:text-zinc-400">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </Link>
+            ))
+          )}
+        </AnimatedBackground>
       </motion.section>
     </motion.main>
   )
