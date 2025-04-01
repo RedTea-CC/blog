@@ -14,14 +14,10 @@ export default function BlogLayout({
 
       <div className="fixed inset-0 flex justify-center sm:px-8">
         <div className="flex w-full max-w-7xl lg:px-8">
-          <div className="w-full bg-zinc-50/90 ring-1 ring-zinc-100 dark:bg-zinc-900/80 dark:ring-zinc-400/20" />
-        </div>
-      </div>
-      <div className="fixed inset-0 flex justify-center sm:px-8">
-        <div className="flex w-full max-w-7xl lg:px-8">
           <div className="w-full bg-zinc-50/90 opacity-95 ring-1 ring-zinc-100 dark:bg-zinc-900/80 dark:ring-zinc-400/20" />
         </div>
       </div>
+
       <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
         <HeaderFixed />
         <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">

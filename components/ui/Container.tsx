@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 import React from 'react'
 
 type ContainerProps = React.ComponentPropsWithoutRef<'div'>
@@ -10,13 +10,13 @@ const OuterContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
         <div className="mx-auto max-w-7xl lg:px-8">{children}</div>
       </div>
     )
-  }
+  },
 )
 
 const InnerContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
   function InnerContainer(
     { className, children, ...props }: ContainerProps,
-    ref
+    ref,
   ) {
     return (
       <div
@@ -27,7 +27,7 @@ const InnerContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
         <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
       </div>
     )
-  }
+  },
 )
 
 const ContainerComponent = React.forwardRef<HTMLDivElement, ContainerProps>(
@@ -37,7 +37,7 @@ const ContainerComponent = React.forwardRef<HTMLDivElement, ContainerProps>(
         <InnerContainer>{children}</InnerContainer>
       </OuterContainer>
     )
-  }
+  },
 )
 
 export const Container = Object.assign(ContainerComponent, {
