@@ -140,10 +140,11 @@ export function Header() {
   )
 
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-  }
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <>
@@ -267,13 +268,21 @@ export function Header() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
               >
                 <div className="pointer-events-auto text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-                  <button
-                    onClick={toggleTheme}
-                    className="rounded-full bg-gray-200 p-2 dark:bg-gray-800"
-                    aria-label="切换暗色模式"
-                  >
-                    {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
-                  </button>
+                  {mounted && (
+                    <button
+                      onClick={() => {
+                        setTheme(theme === 'light' ? 'dark' : 'light')
+                      }}
+                      className="rounded-full bg-gray-200 p-2 dark:bg-gray-800"
+                      aria-label="切换暗色模式"
+                    >
+                      {theme === 'light' ? (
+                        <Sun size={20} />
+                      ) : (
+                        <Moon size={20} />
+                      )}
+                    </button>
+                  )}
                 </div>
               </motion.div>
               {/*
