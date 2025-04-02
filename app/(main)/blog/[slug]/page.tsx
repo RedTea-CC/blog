@@ -7,10 +7,10 @@ export default async function Page({
   // fix:兼容一下是mdx或者md
   let Post
   try {
-    const mdxModule = await import(`@/blog/${slug}.mdx`)
+    const mdxModule = await import(`@/blog/${decodeURIComponent(slug)}.mdx`)
     Post = mdxModule.default
   } catch (error) {
-    const mdModule = await import(`@/blog/${slug}.md`)
+    const mdModule = await import(`@/blog/${decodeURIComponent(slug)}.md`)
     Post = mdModule.default
   }
 

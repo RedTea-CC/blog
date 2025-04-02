@@ -30,8 +30,8 @@ export async function getBlogPostIds() {
 }
 
 // Get all blog posts
-export async function getAllBlogPosts(recentNums = 0): Promise<BlogPost[]> {
-  const fileNames = fs.readdirSync(blogDirectory).slice(recentNums * -1)
+export async function getAllBlogPosts(recentNum = 0): Promise<BlogPost[]> {
+  const fileNames = fs.readdirSync(blogDirectory).slice(recentNum * -1)
 
   const allBlogPosts = fileNames.map((fileName) => {
     const id = fileName.replace(/\.(md|mdx)$/, '')
@@ -43,7 +43,7 @@ export async function getAllBlogPosts(recentNums = 0): Promise<BlogPost[]> {
 
     return {
       id,
-      slug: id,
+      slug: encodeURIComponent(id),
       title: id,
       date: stats.birthtime.toISOString().split('T')[0], // Use file creation date
       content: matterResult.content,
