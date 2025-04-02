@@ -8,6 +8,8 @@ import {
 } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import React from 'react'
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
 
 import { NavigationBar } from '@/app/(main)/NavigationBar'
 import { Avatar } from '@/components/Avatar'
@@ -137,6 +139,12 @@ export function Header() {
     [],
   )
 
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
   return (
     <>
       <motion.header
@@ -258,8 +266,14 @@ export function Header() {
                 initial={{ opacity: 0, y: -20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
               >
-                <div className="pointer-events-auto">
-                  {/* <span>主题</span> */}
+                <div className="pointer-events-auto text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+                  <button
+                    onClick={toggleTheme}
+                    className="rounded-full bg-gray-200 p-2 dark:bg-gray-800"
+                    aria-label="切换暗色模式"
+                  >
+                    {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
+                  </button>
                 </div>
               </motion.div>
               {/*
