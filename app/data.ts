@@ -53,7 +53,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Front-end Developer',
     start: '2023',
     end: 'Present',
-    link: 'https://ibelick.com',
+    link: '/',
     id: 'work1',
   },
 ]
@@ -76,20 +76,24 @@ export const BLOG_POSTS: BlogPost[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
+    link: 'https://github.com/RedTea-CC',
   },
   {
-    label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    label: 'Gitee',
+    link: 'https://gitee.com/redtea25',
   },
-  {
-    label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
-  },
-  {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
-  },
+  // {
+  //   label: 'Twitter',
+  //   link: 'https://twitter.com/ibelick',
+  // },
+  // {
+  //   label: 'LinkedIn',
+  //   link: 'https://www.linkedin.com/in/ibelick',
+  // },
+  // {
+  //   label: 'Instagram',
+  //   link: 'https://www.instagram.com/ibelick',
+  // },
 ]
 
 export const EMAIL = 'redtea25@qq.com'

@@ -259,7 +259,7 @@ export function Header() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
               >
                 <div className="pointer-events-auto">
-                  <span>主题</span>
+                  {/* <span>主题</span> */}
                 </div>
               </motion.div>
               {/*
