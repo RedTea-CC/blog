@@ -305,7 +305,7 @@ export function Header() {
           </Container>
         </div>
       </motion.header>
-      {isHomePage && <div className="h-[--content-offset]" />}
+      {isHomePage && <div className="h-[var(--content-offset)]" />}
     </>
   )
 }

@@ -17,10 +17,10 @@ export default function BlogLayout({
         </div>
       </div>
 
-      <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-        <HeaderFixed />
-        <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
-          {children}
+      <div className="relative text-zinc-800 dark:text-zinc-200">
+        <div className="mx-auto max-w-7xl lg:px-9">
+          <HeaderFixed />
+          <div className="px-15">{children}</div>
           <Footer />
         </div>
       </div>
