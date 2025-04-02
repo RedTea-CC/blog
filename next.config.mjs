@@ -16,6 +16,13 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  webpack: (config, { dev }) => {
+    if (!dev) {
+      // 直接禁用缓存
+      config.cache = false
+    }
+    return config
+  },
 }
 
 const withMDX = createMDX({
