@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { getAllBlogPosts } from '@/app/lib/actions'
+import { getAllBlogPosts, type BlogPost } from '@/app/lib/actions'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import Link from 'next/link'
 
@@ -26,7 +26,7 @@ const TRANSITION_SECTION = {
 }
 
 export default function BlogPage() {
-  const [blogPosts, setBlogPosts] = useState<any[]>([])
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
