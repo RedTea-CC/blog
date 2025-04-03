@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Reglazed Studio',
+    company: "XI'AN CY",
     title: 'Front-end Developer',
     start: '2023',
     end: 'Present',
