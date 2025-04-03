@@ -71,7 +71,7 @@ export function Header() {
       }
 
       if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
-        setProperty('--header-inner-position', 'fixed')
+        // setProperty('--header-inner-position', 'fixed')
         removeProperty('--header-top')
         removeProperty('--avatar-top')
       } else {
@@ -273,8 +273,8 @@ export function Header() {
                       onClick={() => {
                         setTheme(theme === 'light' ? 'dark' : 'light')
                       }}
-                      className="rounded-full bg-gray-200 p-2 dark:bg-gray-800"
-                      aria-label="切换暗色模式"
+                      className="cursor-pointer rounded-full bg-gray-200 p-2 dark:bg-gray-800"
+                      aria-label="切换主题"
                     >
                       {theme === 'light' ? (
                         <Sun size={20} />
