@@ -162,10 +162,10 @@ export function Header() {
             <>
               <div
                 ref={avatarRef}
-                className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
+                className="order-last mt-[calc(theme(spacing.8)-theme(spacing.3))]"
               />
               <Container
-                className="top-0 order-last -mb-3 pt-3"
+                className="top-0 order-last"
                 style={{
                   position:
                     'var(--header-position)' as React.CSSProperties['position'],
@@ -186,7 +186,7 @@ export function Header() {
                   }}
                 >
                   <motion.div
-                    className="relative inline-flex"
+                    className="xxx relative inline-flex"
                     layoutId="avatar"
                     layout
                     onContextMenu={onAvatarContextMenu}

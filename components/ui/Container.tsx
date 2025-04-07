@@ -6,8 +6,8 @@ type ContainerProps = React.ComponentPropsWithoutRef<'div'>
 const OuterContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
   function OuterContainer({ className, children, ...props }, ref) {
     return (
-      <div ref={ref} className={cn('sm:px-8', className)} {...props}>
-        <div className="mx-auto max-w-7xl lg:px-8">{children}</div>
+      <div ref={ref} className={cn('', className)} {...props}>
+        <div className="">{children}</div>
       </div>
     )
   },
@@ -19,11 +19,7 @@ const InnerContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
     ref,
   ) {
     return (
-      <div
-        ref={ref}
-        className={cn('relative px-4 sm:px-8 lg:px-12', className)}
-        {...props}
-      >
+      <div ref={ref} className={cn('xxx relative', className)} {...props}>
         <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
       </div>
     )

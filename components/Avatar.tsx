@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import portraitImage from '@/assets/Cat.jpg'
 import portraitAltImage from '@/assets/Cat1.jpg'
 
-type ComponentProps<P = {}> = PropsWithChildren<
+type ComponentProps<P = object> = PropsWithChildren<
   {
     className?: string
   } & P

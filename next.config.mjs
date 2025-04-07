@@ -32,7 +32,6 @@ const withMDX = createMDX({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       // 为代码添加特殊样式
-      // @ts-ignore
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       // 为每个 header 添加 id
       rehypeSlug,
