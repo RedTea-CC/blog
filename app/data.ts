@@ -29,21 +29,33 @@ type SocialLink = {
 
 export const PROJECTS: Project[] = [
   {
-    name: 'Motion Primitives Pro',
+    name: 'demo_experimental',
     description:
-      'Advanced components and templates to craft beautiful websites.',
-    link: 'https://pro.motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
+      '手动实现JavaScript数组的原生方法；算法练习；数据结构练习；常用工具函数的实现；',
+    link: 'https://github.com/RedTea-CC/demo_experimental',
+    video: '',
     id: 'project1',
   },
   {
-    name: 'Motion Primitives',
-    description: 'UI kit to make beautiful, animated interfaces.',
-    link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    name: 'nextjs-dashboard',
+    description: 'nextjs',
+    link: 'https://nextjs-dashboard-nine-peach-45.vercel.app/',
+    video: '',
     id: 'project2',
+  },
+  {
+    name: 'cocos-demo',
+    description: 'cocos2.4',
+    link: 'https://github.com/RedTea-CC/cocos-demo',
+    video: '',
+    id: 'project3',
+  },
+  {
+    name: 'note-img',
+    description: '图床仓库',
+    link: 'https://gitee.com/redtea25/note-img',
+    video: '',
+    id: 'project4',
   },
 ]
 
