@@ -4,6 +4,7 @@ import './globals.css'
 import '@/styles/mdx.css' // MDX styles
 
 import { ThemeProvider } from 'next-themes'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -47,6 +48,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-H55H8S6VZ2" />
     </html>
   )
 }
