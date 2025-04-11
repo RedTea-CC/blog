@@ -19,7 +19,7 @@ const InnerContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
     ref,
   ) {
     return (
-      <div ref={ref} className={cn('xxx relative', className)} {...props}>
+      <div ref={ref} className={cn('relative', className)} {...props}>
         <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
       </div>
     )
