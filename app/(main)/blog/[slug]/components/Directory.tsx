@@ -1,6 +1,7 @@
 'use client'
 
 import './tocbot.css'
+import './scrollbar.css'
 import { Variants, motion, useScroll } from 'framer-motion'
 import { useEffect } from 'react'
 import tocbot from 'tocbot'
@@ -51,8 +52,8 @@ export default function Directory() {
   }, [scrollY])
 
   return (
-    <div className="h-full w-44 shrink-0">
-      <div className="toc-container sticky top-0 w-44">
+    <div className="sticky top-24 h-[calc(100vh-6rem)] w-44 shrink-0 overflow-y-auto">
+      <div className="w-44 break-words break-all">
         <h2 className="mb-4 text-lg font-semibold">目录</h2>
         <motion.ul
           className="js-toc group pointer-events-auto flex flex-col space-y-2 text-zinc-500"
