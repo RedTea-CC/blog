@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: "XI'AN CY",
-    title: 'Front-end Developer',
+    title: '西安诚优网络科技有限责任公司',
     start: '2023',
     end: 'Present',
     link: '/',
