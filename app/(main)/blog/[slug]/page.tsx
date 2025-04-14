@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import { ShareButtons } from './components/ShareButtons'
 import { PostNavigation } from './components/PostNavigation'
+import Directory from './components/Directory'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -60,23 +61,27 @@ export default async function Page({ params }: Props) {
       <PostNavigation prevPost={prevPost} nextPost={nextPost} />
 
       {/* 文章内容 */}
-      <article className="mb-10 flex flex-col items-center">
-        <h1 className="mb-6 text-3xl font-bold">{formattedTitle}</h1>
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center py-8">
-              <div className="flex items-center space-x-2">
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-zinc-500 border-t-transparent" />
-                <span>加载中...</span>
+      <div className="relative flex justify-between">
+        {/* 目录 */}
+        <Directory />
+        <article className="mb-10 flex grow flex-col items-center">
+          <h1 className="mb-6 text-3xl font-bold">{formattedTitle}</h1>
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center py-8">
+                <div className="flex items-center space-x-2">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-zinc-500 border-t-transparent" />
+                  <span>加载中...</span>
+                </div>
               </div>
+            }
+          >
+            <div className="prose prose-gray prose-h4:prose-base dark:prose-invert prose-h1:text-xl prose-h1:font-medium prose-h2:mt-12 prose-h2:scroll-m-20 prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-h4:font-medium prose-h5:text-base prose-h5:font-medium prose-h6:text-base prose-h6:font-medium prose-strong:font-medium js-toc-content mt-2 pb-20">
+              <Post />
             </div>
-          }
-        >
-          <div className="prose prose-gray prose-h4:prose-base dark:prose-invert prose-h1:text-xl prose-h1:font-medium prose-h2:mt-12 prose-h2:scroll-m-20 prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-h4:font-medium prose-h5:text-base prose-h5:font-medium prose-h6:text-base prose-h6:font-medium prose-strong:font-medium mt-2 pb-20">
-            <Post />
-          </div>
-        </Suspense>
-      </article>
+          </Suspense>
+        </article>
+      </div>
 
       {/* 分享按钮 */}
       <Suspense
