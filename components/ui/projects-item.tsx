@@ -38,18 +38,20 @@ function ProjectVideo({ src }: ProjectVideoProps) {
             src={src || `/placeholder.svg`}
             alt=""
             fill
-            className="h-full w-full object-cover"
+            className="h-full w-full"
           />
         </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <div className="relative aspect-video h-[50vh] w-full overflow-hidden rounded-xl md:h-[70vh]">
+        <MorphingDialogContent className="relative max-h-[70vh] max-w-[50vw] rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+          <div className="relative overflow-hidden rounded-xl">
             <Image
               src={src || `/placeholder.svg`}
               alt=""
-              fill
-              className="h-full w-full object-cover"
+              width={0}
+              height={0}
+              sizes="90vw"
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         </MorphingDialogContent>
