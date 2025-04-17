@@ -1,5 +1,6 @@
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
+import matter from 'gray-matter'
 // import readingTime from 'reading-time'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrismPlus from 'rehype-prism-plus'
@@ -41,7 +42,15 @@ const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   // Add markdown plugins here, as desired
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [
+      () => (tree, file) => {
+        const { content } = matter(file.value)
+        console.log('content', content)
+        file.value = content
+        return tree
+      },
+      remarkGfm,
+    ],
     rehypePlugins: [
       // 为代码添加特殊样式
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
