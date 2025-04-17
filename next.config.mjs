@@ -23,6 +23,18 @@ const nextConfig = {
     }
     return config
   },
+  images: {
+    remotePatterns: [
+      new URL('https://gitee.com/redtea25/note-img/raw/master/img/***'),
+      // {
+      //   protocol: 'https',
+      //   hostname: 'gitee.com',
+      //   port: '',
+      //   pathname: 'redtea25/note-img/raw/master/img/**',
+      //   search: '',
+      // },
+    ],
+  },
 }
 
 const withMDX = createMDX({

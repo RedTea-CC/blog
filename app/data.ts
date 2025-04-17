@@ -33,28 +33,32 @@ export const PROJECTS: Project[] = [
     description:
       '手动实现JavaScript数组的原生方法；算法练习；数据结构练习；常用工具函数的实现；',
     link: 'https://github.com/RedTea-CC/demo_experimental',
-    video: '',
+    video:
+      'https://gitee.com/redtea25/note-img/raw/master/img/202504171648409.png',
     id: 'project1',
   },
   {
     name: 'nextjs-dashboard',
     description: 'nextjs',
     link: 'https://nextjs-dashboard-nine-peach-45.vercel.app/',
-    video: '',
+    video:
+      'https://gitee.com/redtea25/note-img/raw/master/img/202504171650076.png',
     id: 'project2',
   },
   {
     name: 'cocos-demo',
     description: 'cocos2.4',
     link: 'https://github.com/RedTea-CC/cocos-demo',
-    video: '',
+    video:
+      'https://gitee.com/redtea25/note-img/raw/master/img/202504171647428.png',
     id: 'project3',
   },
   {
     name: 'note-img',
-    description: '图床仓库',
+    description: '笔记的图床仓库',
     link: 'https://gitee.com/redtea25/note-img',
-    video: '',
+    video:
+      'https://gitee.com/redtea25/note-img/raw/master/img/202504171623132.png',
     id: 'project4',
   },
 ]
